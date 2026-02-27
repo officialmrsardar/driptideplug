@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: "2023-10-16",
+  apiVersion: "2026-01-28.clover",
 });
 
 export async function POST(req: Request) {
@@ -18,7 +18,8 @@ export async function POST(req: Request) {
     }
 
     // Get current origin (works locally + production)
-    const origin = req.headers.get("origin") || "http://localhost:3000";
+    const origin =
+      req.headers.get("origin") || "http://localhost:3000";
 
     const lineItems = cart.map((item: any) => ({
       price_data: {
@@ -26,14 +27,14 @@ export async function POST(req: Request) {
         product_data: {
           name: `${item.name} (${item.color} / ${item.size})`,
         },
-        unit_amount: item.price * 100, // Stripe uses cents
+        unit_amount: Math.round(item.price * 100), // convert to cents safely
       },
       quantity: 1,
     }));
 
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
       mode: "payment",
+      payment_method_types: ["card"],
       line_items: lineItems,
 
       // Collect shipping address
@@ -56,7 +57,7 @@ export async function POST(req: Request) {
     console.error("Stripe Checkout Error:", error);
 
     return NextResponse.json(
-      { error: "Something went wrong with Stripe." },
+      { error: "Stripe session creation failed." },
       { status: 500 }
     );
   }
