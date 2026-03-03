@@ -95,7 +95,6 @@ export default function Home() {
 
   const handleCheckout = async () => {
     if (cart.length === 0) return;
-
     setLoading(true);
 
     const res = await fetch("/api/checkout", {
@@ -109,56 +108,63 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen bg-white text-black">
+    <div className="min-h-screen flex flex-col lg:flex-row bg-white text-black">
 
       {/* SIDEBAR */}
-      <aside className="w-64 bg-black text-white px-6 py-8 flex flex-col">
-        <Image src="/images/logo.png" alt="Logo" width={160} height={40} unoptimized />
-        <nav className="mt-12 flex flex-col gap-4 text-sm uppercase">
+      <aside className="lg:w-64 w-full bg-black text-white px-6 py-6 flex flex-row lg:flex-col items-center lg:items-start justify-between lg:justify-start">
+        <Image src="/images/logo.png" alt="Logo" width={140} height={40} />
+        <nav className="hidden lg:flex mt-10 flex-col gap-4 text-sm uppercase">
           <span>New</span>
           <span>Shoes</span>
           <span>Clothing</span>
           <span>Accessories</span>
         </nav>
-        <button onClick={() => setShowCart(true)} className="mt-auto text-sm">
+        <button onClick={() => setShowCart(true)} className="text-sm">
           Cart ({cart.length})
         </button>
       </aside>
 
-      {/* GRID */}
-      <main className="flex-1 px-10 py-10">
-        <div className="grid grid-cols-4 gap-8">
+      {/* PRODUCT GRID */}
+      <main className="flex-1 px-6 py-8">
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
           {products.map((p) => {
             const color = Object.keys(p.colors)[0];
-            const img = p.colors[color as keyof typeof p.colors]?.[0] ?? "";
+            const img = p.colors[color as keyof typeof p.colors]?.[0];
 
             return (
               <div key={p.id}
                 onClick={() => {
                   setActiveProduct(p);
                   setSelectedColor(color);
-                  setActiveImage(img);
+                  setActiveImage(img || "");
                   setSelectedSize("");
                 }}
                 className="cursor-pointer">
 
-                <div className="aspect-square bg-gray-100 mb-3">
-                  <img src={img} alt={p.name}
-                    className="w-full h-full object-cover" />
+                <div className="aspect-square bg-gray-100 mb-3 relative">
+                  <Image
+                    src={img || "/images/placeholder.png"}
+                    alt={p.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
 
                 <div className="text-sm">{p.name}</div>
-                <div className="opacity-60">${p.price}</div>
+                <div className="opacity-60">
+                  ${p.price.toLocaleString()}
+                </div>
               </div>
             );
           })}
         </div>
       </main>
 
-      {/* MODAL */}
+      {/* PRODUCT MODAL */}
       {activeProduct && (
-        <div className="fixed inset-0 bg-black/50 z-40 flex items-center justify-center">
-          <div className="relative bg-white w-[900px] p-8 grid grid-cols-2 gap-8">
+        <div className="fixed inset-0 bg-black/60 z-40 flex items-center justify-center p-4">
+          <div className="relative bg-white w-full max-w-5xl p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+
             <button
               onClick={() => setActiveProduct(null)}
               className="absolute top-4 right-4 text-2xl">
@@ -166,31 +172,39 @@ export default function Home() {
             </button>
 
             <div>
-              <img src={activeImage}
-                className="w-full aspect-square object-cover mb-4" />
+              <div className="relative aspect-square mb-4">
+                <Image src={activeImage} alt="" fill className="object-cover" />
+              </div>
 
-              <div className="flex gap-2">
+              <div className="flex gap-2 overflow-x-auto">
                 {activeProduct.colors[selectedColor].map((img: string) => (
-                  <img key={img}
-                    src={img}
-                    onClick={() => setActiveImage(img)}
-                    className="w-16 h-16 object-cover border cursor-pointer" />
+                  <div key={img} className="relative w-16 h-16 flex-shrink-0">
+                    <Image
+                      src={img}
+                      alt=""
+                      fill
+                      onClick={() => setActiveImage(img || "")}
+                      className="object-cover border cursor-pointer"
+                    />
+                  </div>
                 ))}
               </div>
             </div>
 
             <div>
               <h1 className="text-2xl mb-2">{activeProduct.name}</h1>
-              <p className="mb-4">${activeProduct.price}</p>
+              <p className="mb-4 font-semibold">
+                ${activeProduct.price.toLocaleString()}
+              </p>
 
-              <div className="mb-4 flex gap-2">
+              <div className="mb-4 flex flex-wrap gap-2">
                 {Object.keys(activeProduct.colors).map((c) => (
                   <button key={c}
                     onClick={() => {
                       setSelectedColor(c);
-                      setActiveImage(activeProduct.colors[c][0]);
+                      setActiveImage(activeProduct.colors[c][0] || "");
                     }}
-                    className="border px-3 py-1">
+                    className="border px-3 py-1 text-sm">
                     {c}
                   </button>
                 ))}
@@ -225,10 +239,16 @@ export default function Home() {
         </div>
       )}
 
-      {/* CART */}
+      {/* CART DRAWER */}
       {showCart && (
-        <div className="fixed right-0 top-0 h-full w-80 bg-white border-l p-6 z-50">
-          <h2 className="mb-4 text-lg">Cart</h2>
+        <div className="fixed right-0 top-0 h-full w-full sm:w-96 bg-white border-l p-6 z-50">
+          <button
+            onClick={() => setShowCart(false)}
+            className="mb-4 text-sm underline">
+            Close
+          </button>
+
+          <h2 className="mb-4 text-lg font-semibold">Cart</h2>
 
           {cart.map((i, idx) => (
             <div key={idx} className="mb-2 text-sm">
@@ -237,7 +257,7 @@ export default function Home() {
           ))}
 
           <div className="mt-4 font-semibold">
-            Total: ${cartTotal}
+            Total: ${cartTotal.toLocaleString()}
           </div>
 
           <button
