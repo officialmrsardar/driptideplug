@@ -8,23 +8,23 @@ const CLOTHING_SIZES = ["S","M","L","XL"];
 const ACCESSORY_SIZES = ["One Size"];
 
 const products = [
-  { id: 1, name: "Jordan 4 Oreos", price: 320, category: "shoes",
+  { id: 1, name: "Jordan 4 Oreos", price: 299.99, category: "shoes",
     colors: { White: ["/images/jordanfouroreos.png"] } },
 
-  { id: 2, name: "Jordan 4 Red Thunder", price: 340, category: "shoes",
+  { id: 2, name: "Jordan 4 Red Thunder", price: 299.99, category: "shoes",
     colors: { Red: ["/images/jordan_four_red_thunder.png"] } },
 
   { id: 3, name: "Spider Hoodie", price: 180, category: "clothing",
     colors: { Blue: ["/images/blue_spider_hoodie.png"] } },
 
-  { id: 4, name: "Bape Hoodie", price: 200, category: "clothing",
+  { id: 4, name: "Bape Hoodie", price: 159.99, category: "clothing",
     colors: {
       Blue: ["/images/blue_bape_hoodie.png"],
       Pink: ["/images/pink_bape_hoodie.JPEG"],
       Red: ["/images/red_bape_hoodie.JPEG"],
     } },
 
-  { id: 5, name: "Moncler Jacket", price: 850, category: "clothing",
+  { id: 5, name: "Moncler Jacket", price: 499.99, category: "clothing",
     colors: {
       Black: [
         "/images/blackmonclearjacket.png",
@@ -42,7 +42,7 @@ const products = [
   { id: 7, name: "Denim Tears Shorts", price: 170, category: "clothing",
     colors: { Black: ["/images/denim_tears_shorts.png"] } },
 
-  { id: 8, name: "Fear of God Tracksuit", price: 500, category: "clothing",
+  { id: 8, name: "Fear of God Tracksuit", price: 299.99, category: "clothing",
     colors: {
       Black: ["/images/fear_of_god_track_suit.png"],
       Cream: ["/images/fear_of_god_track_suit.png"],
@@ -59,7 +59,7 @@ const products = [
         "/images/go_yard_green_bag_5.JPG",
       ] } },
 
-  { id: 10, name: "Audemars Piguet Watch", price: 450, category: "accessory",
+  { id: 10, name: "Audemars Piguet Watch", price: 649.99, category: "accessory",
     colors: {
       Silver: [
         "/images/ap_watch.jpeg",
@@ -68,10 +68,10 @@ const products = [
         "/images/ap_watch_4.jpeg",
       ] } },
 
-  { id: 11, name: "Rolex Watch", price: 9500, category: "accessory",
+  { id: 11, name: "Rolex Watch", price: 4999.99, category: "accessory",
     colors: { Gold: ["/images/rolex_watch.JPG"] } },
 
-  { id: 12, name: "Van Cleef Bracelet", price: 3800, category: "accessory",
+  { id: 12, name: "Van Cleef Bracelet", price: 399.99, category: "accessory",
     colors: { Gold: ["/images/van_cleef_bracelet.jpeg"] } },
 ];
 
