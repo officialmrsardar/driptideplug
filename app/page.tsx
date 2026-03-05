@@ -14,17 +14,20 @@ const products = [
   { id: 2, name: "Jordan 4 Red Thunder", price: 299.99, category: "shoes",
     colors: { Red: ["/images/jordan_four_red_thunder.png"] } },
 
-  { id: 3, name: "Spider Hoodie", price: 180, category: "clothing",
+  { id: 3, name: "Jordan 4 Black Cats", price: 299.99, category: "shoes",
+    colors: { Black: ["/images/jordan_four_black_cat.jpeg"] } },
+
+  { id: 4, name: "Spider Hoodie", price: 180, category: "clothing",
     colors: { Blue: ["/images/blue_spider_hoodie.png"] } },
 
-  { id: 4, name: "Bape Hoodie", price: 159.99, category: "clothing",
+  { id: 5, name: "Bape Hoodie", price: 159.99, category: "clothing",
     colors: {
       Blue: ["/images/blue_bape_hoodie.png"],
       Pink: ["/images/pink_bape_hoodie.JPEG"],
       Red: ["/images/red_bape_hoodie.JPEG"],
     } },
 
-  { id: 5, name: "Moncler Jacket", price: 499.99, category: "clothing",
+  { id: 7, name: "Moncler Jacket", price: 499.99, category: "clothing",
     colors: {
       Black: [
         "/images/blackmonclearjacket.png",
@@ -32,17 +35,17 @@ const products = [
         "/images/blackmonclearjacket_3.png",
       ] } },
 
-  { id: 6, name: "Denim Tears Hoodie", price: 250, category: "clothing",
+  { id: 8, name: "Denim Tears Hoodie", price: 250, category: "clothing",
     colors: {
       Black: ["/images/denim_tears_hoodies.png"],
       Pink: ["/images/pink_denim_tears_hoodie.JPG"],
       Red: ["/images/red_denim_tears_hoodie.JPG"],
     } },
 
-  { id: 7, name: "Denim Tears Shorts", price: 170, category: "clothing",
+  { id: 9, name: "Denim Tears Shorts", price: 170, category: "clothing",
     colors: { Black: ["/images/denim_tears_shorts.png"] } },
 
-  { id: 8, name: "Fear of God Tracksuit", price: 299.99, category: "clothing",
+  { id: 10, name: "Fear of God Tracksuit", price: 299.99, category: "clothing",
     colors: {
       Black: ["/images/fear_of_god_track_suit.png"],
       Cream: ["/images/fear_of_god_track_suit.png"],
@@ -50,7 +53,7 @@ const products = [
       Beige: ["/images/fear_of_god_track_suit.png"],
     } },
 
-  { id: 9, name: "Goyard Green Bag", price: 2200, category: "accessory",
+  { id: 11, name: "Goyard Green Bag", price: 499.99, category: "accessory",
     colors: {
       Green: [
         "/images/go_yard_green_bag_2.JPG",
@@ -59,7 +62,7 @@ const products = [
         "/images/go_yard_green_bag_5.JPG",
       ] } },
 
-  { id: 10, name: "Audemars Piguet Watch", price: 649.99, category: "accessory",
+  { id: 12, name: "Audemars Piguet Watch", price: 649.99, category: "accessory",
     colors: {
       Silver: [
         "/images/ap_watch.jpeg",
@@ -68,10 +71,10 @@ const products = [
         "/images/ap_watch_4.jpeg",
       ] } },
 
-  { id: 11, name: "Rolex Watch", price: 4999.99, category: "accessory",
+  { id: 13, name: "Rolex Watch", price: 4999.99, category: "accessory",
     colors: { Gold: ["/images/rolex_watch.JPG"] } },
 
-  { id: 12, name: "Van Cleef Bracelet", price: 399.99, category: "accessory",
+  { id: 14, name: "Van Cleef Bracelet", price: 399.99, category: "accessory",
     colors: { Gold: ["/images/van_cleef_bracelet.jpeg"] } },
 ];
 
@@ -110,7 +113,6 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col lg:flex-row bg-white text-black">
 
-      {/* SIDEBAR */}
       <aside className="lg:w-64 w-full bg-black text-white px-6 py-6 flex flex-row lg:flex-col items-center lg:items-start justify-between lg:justify-start">
         <Image src="/images/logo.png" alt="Logo" width={140} height={40} />
         <nav className="hidden lg:flex mt-10 flex-col gap-4 text-sm uppercase">
@@ -124,7 +126,6 @@ export default function Home() {
         </button>
       </aside>
 
-      {/* PRODUCT GRID */}
       <main className="flex-1 px-6 py-8">
         <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
           {products.map((p) => {
@@ -160,7 +161,6 @@ export default function Home() {
         </div>
       </main>
 
-      {/* PRODUCT MODAL */}
       {activeProduct && (
         <div className="fixed inset-0 bg-black/60 z-40 flex items-center justify-center p-4">
           <div className="relative bg-white w-full max-w-5xl p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -239,7 +239,6 @@ export default function Home() {
         </div>
       )}
 
-      {/* CART DRAWER */}
       {showCart && (
         <div className="fixed right-0 top-0 h-full w-full sm:w-96 bg-white border-l p-6 z-50">
           <button
