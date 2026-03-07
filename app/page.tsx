@@ -8,26 +8,27 @@ const CLOTHING_SIZES = ["S","M","L","XL"];
 const ACCESSORY_SIZES = ["One Size"];
 
 const products = [
-  { id: 1, name: "Jordan 4 Oreos", price: 299.99, category: "shoes",
+  { id: 1, name: "Jordan 4 Oreos", price: 199.99, category: "shoes",
     colors: { White: ["/images/jordanfouroreos.png"] } },
 
-  { id: 2, name: "Jordan 4 Red Thunder", price: 299.99, category: "shoes",
+  { id: 2, name: "Jordan 4 Red Thunder", price: 199.99, category: "shoes",
     colors: { Red: ["/images/jordan_four_red_thunder.png"] } },
 
-  { id: 3, name: "Jordan 4 Black Cats", price: 299.99, category: "shoes",
+  { id: 3, name: "Jordan 4 Black Cats", price: 199.99, category: "shoes",
     colors: { Black: ["/images/jordan_four_black_cat.jpeg"] } },
 
-  { id: 4, name: "Spider Hoodie", price: 180, category: "clothing",
+  { id: 4, name: "Spider Hoodie", price: 139.99, category: "clothing",
     colors: { Blue: ["/images/blue_spider_hoodie.png"] } },
 
-  { id: 5, name: "Bape Hoodie", price: 159.99, category: "clothing",
+  { id: 5, name: "Bape Hoodie", price: 129.99, category: "clothing",
     colors: {
       Blue: ["/images/blue_bape_hoodie.png"],
       Pink: ["/images/pink_bape_hoodie.JPEG"],
       Red: ["/images/red_bape_hoodie.JPEG"],
+      Black: ["/images/black_bape_hoodie.jpg"],
     } },
 
-  { id: 7, name: "Moncler Jacket", price: 499.99, category: "clothing",
+  { id: 6, name: "Moncler Jacket", price: 499.99, category: "clothing",
     colors: {
       Black: [
         "/images/blackmonclearjacket.png",
@@ -35,17 +36,17 @@ const products = [
         "/images/blackmonclearjacket_3.png",
       ] } },
 
-  { id: 8, name: "Denim Tears Hoodie", price: 250, category: "clothing",
+  { id: 7, name: "Denim Tears Hoodie", price: 129.99, category: "clothing",
     colors: {
       Black: ["/images/denim_tears_hoodies.png"],
       Pink: ["/images/pink_denim_tears_hoodie.JPG"],
       Red: ["/images/red_denim_tears_hoodie.JPG"],
     } },
 
-  { id: 9, name: "Denim Tears Shorts", price: 170, category: "clothing",
+  { id: 8, name: "Denim Tears Shorts", price: 89.99, category: "clothing",
     colors: { Black: ["/images/denim_tears_shorts.png"] } },
 
-  { id: 10, name: "Fear of God Tracksuit", price: 299.99, category: "clothing",
+  { id: 9, name: "Fear of God Tracksuit", price: 159.99, category: "clothing",
     colors: {
       Black: ["/images/fear_of_god_track_suit.png"],
       Cream: ["/images/fear_of_god_track_suit.png"],
@@ -53,7 +54,7 @@ const products = [
       Beige: ["/images/fear_of_god_track_suit.png"],
     } },
 
-  { id: 11, name: "Goyard Green Bag", price: 499.99, category: "accessory",
+  { id: 10, name: "Goyard Green Bag", price: 189.99, category: "accessory",
     colors: {
       Green: [
         "/images/go_yard_green_bag_2.JPG",
@@ -62,7 +63,15 @@ const products = [
         "/images/go_yard_green_bag_5.JPG",
       ] } },
 
-  { id: 12, name: "Audemars Piguet Watch", price: 649.99, category: "accessory",
+  { id: 11, name: "Louis Vuitton Hang Bag", price: 189.99, category: "accessory",
+    colors: {
+      Black: ["/images/lv_hand_bag.jpeg"],
+      Beige: ["/images/lv_hand_bag.jpeg"],
+      Pink: ["/images/lv_hand_bag.jpeg"],
+      Yellow: ["/images/llv_hand_bag.jpeg"],
+    } },
+
+  { id: 12, name: "Audemars Piguet Watch", price: 1449.99, category: "accessory",
     colors: {
       Silver: [
         "/images/ap_watch.jpeg",
@@ -71,10 +80,10 @@ const products = [
         "/images/ap_watch_4.jpeg",
       ] } },
 
-  { id: 13, name: "Rolex Watch", price: 4999.99, category: "accessory",
+  { id: 13, name: "Rolex Day Date", price: 1499.99, category: "accessory",
     colors: { Gold: ["/images/rolex_watch.JPG"] } },
 
-  { id: 14, name: "Van Cleef Bracelet", price: 399.99, category: "accessory",
+  { id: 14, name: "Van Cleef Bracelet", price: 249.99, category: "accessory",
     colors: { Gold: ["/images/van_cleef_bracelet.jpeg"] } },
 ];
 
