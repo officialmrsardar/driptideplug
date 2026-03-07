@@ -18,7 +18,7 @@ const products = [
     colors: { Black: ["/images/jordan_four_black_cat.jpeg"] } },
 
   { id: 4, name: "Spider Hoodie", price: 139.99, category: "clothing",
-    colors: { Blue: ["/images/blue_spider_hoodie.png"] } },
+    colors: { Blue: ["/images/blue_spider_hoodie.jpg"] } },
 
   { id: 5, name: "Bape Hoodie", price: 129.99, category: "clothing",
     colors: {
@@ -38,7 +38,7 @@ const products = [
 
   { id: 7, name: "Denim Tears Hoodie", price: 129.99, category: "clothing",
     colors: {
-      Black: ["/images/denim_tears_hoodies.png"],
+      Black: ["/images/black_tears_hoodies.png"],
       Pink: ["/images/pink_denim_tears_hoodie.JPG"],
       Red: ["/images/red_denim_tears_hoodie.JPG"],
     } },
